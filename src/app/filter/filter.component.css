@@ -1,0 +1,21 @@
+.filterDiv{
+    width: 15%;
+    float:left;
+    background-color: hsl(204, 33%, 97%);
+    width: 15%;
+    float:left;
+    background-color: hsl(204, 33%, 97%);
+    padding-top:30px
+}
+
+mat-form-field{
+    width: 70%;
+    display: block;
+    margin-left: 15%;
+}
+
+button{
+    float: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,57 @@
+<div class="filterDiv">
+    <form>
+        <mat-form-field appearance="fill">
+            <mat-label>Category</mat-label>
+            <select matNativeControl name="category" [(ngModel)]="product.category">
+                <optgroup label="Wardrobe">
+                    <option *ngFor="let element of wardrobe" [value]="element">{{element}}</optgroup>
+                <optgroup label="Accessories">
+                    <option *ngFor="let element of accessories" [value]="element">{{element}}</option>
+                </optgroup>
+            </select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Gender</mat-label>
+            <select matNativeControl name="gender" [(ngModel)]="product.gender">
+                <optgroup label="Gender">
+                    <option *ngFor="let gender of genders" [value]="gender">{{gender}}</option>
+                </optgroup>
+            </select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" *ngIf="product.category == 'clothing' || product.category == 'underwear'">
+            <mat-label>Size</mat-label>
+            <select matNativeControl name="clothingSize" [(ngModel)]="product.clothingSize">
+                <optgroup label="Size">
+                    <option *ngFor="let size of clothingSizes" [value]="size">{{size}}</option>
+                </optgroup>
+            </select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" *ngIf="product.category == 'shoes'">
+            <mat-label>Size</mat-label>
+            <select matNativeControl name="shoesSize" [(ngModel)]="product.shoesSize">
+                <optgroup label="Size">
+                    <option *ngFor="let size of shoesSizes" [value]="size">{{size}}</option>
+                </optgroup>
+            </select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Color</mat-label>
+            <select matNativeControl name="color" [(ngModel)]="product.color">
+                <optgroup label="Color">
+                    <option *ngFor="let color of colors" [value]="color" >{{color}}</option>
+                </optgroup>
+            </select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Price</mat-label>
+            <input matInput type="number" name="price" [(ngModel)]="product.price" >
+        </mat-form-field>
+    </form>
+
+    <button mat-flat-button color="primary" (click)="filter()">Filter</button>
+</div>

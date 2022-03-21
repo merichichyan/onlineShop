@@ -14,4 +14,25 @@ export class ProductsService {
     { category: 'accessories', gender: 'female', color: 'green', price: 170, title: 'Earring', description: 'description5', photo: 'https://i.pinimg.com/564x/29/19/cd/2919cdb01c26ae076d01c41ebafd8074.jpg' },
   ]
   constructor() { }
+
+  filter(category: string = '', gender: string = '', color: string ='', price: number=0) {
+    let newProduct: any
+    newProduct = this.products.filter(product => {
+      let valid = true
+      if(category){
+        valid = valid && product.category === category
+      }
+      if(gender){
+        valid = valid && product.gender === gender
+      }
+      if(color){
+        valid = valid && product.color === color
+      }
+      if(price){
+        valid = valid && product.price === price
+      }
+      return valid
+    })
+    this.products = newProduct
+  }
 }

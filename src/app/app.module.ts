@@ -14,6 +14,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { FilterComponent } from './filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     HeaderComponent,
     RegistrationDialogComponent,
     LoginDialogComponent,
+    FilterComponent,
   ],
   imports: [
     BrowserModule,
