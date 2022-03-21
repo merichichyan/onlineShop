@@ -2,7 +2,7 @@ export class User {
     company: string
     name: string
     surname: string
-    age: boolean
+    age: number
     gender: string
     email: string
     password: string
