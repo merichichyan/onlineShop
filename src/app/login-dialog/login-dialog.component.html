@@ -1,0 +1,15 @@
+<div class="forms-container">
+    <form>
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput name="email" [(ngModel)]="email">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" name="password" [(ngModel)]="password">
+        </mat-form-field>
+
+        <button mat-flat-button color="primary" [mat-dialog-close]="true" (click)="onSubmit()">Login</button>
+    </form>
+</div>

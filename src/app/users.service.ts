@@ -19,4 +19,26 @@ export class UsersService {
     { company: 'company10', name: 'name10', surname: 'surname10', age: 64, gender: 'male', email: 'user5@gmail.com', password: 'password', role: 'user', token: "token10" },
   ]
   constructor() { }
+
+
+  login(email: string, password: string): boolean {
+    let user = this.users.find(function (u) {
+      return (u.email == email && u.password == password)
+    })
+    if (user) {
+      localStorage.setItem("token", user.token)
+      return true
+    }
+    return false
+  }
+
+  getUser(): any {
+    let token = localStorage.getItem("token")
+    if (token) {
+      return this.users.find(function (u) {
+        return u.token == token
+      })
+    }
+    return false
+  }
 }

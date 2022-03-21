@@ -1,0 +1,12 @@
+.forms-container{
+    width: 300px;
+    margin: auto;
+}
+
+mat-form-field{
+    width: 100%;
+    display: block;
+}
+  button{
+    float: right;
+}

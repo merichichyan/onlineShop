@@ -12,12 +12,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatRadioModule } from '@angular/material/radio';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
+import { LoginDialogComponent } from './login-dialog/login-dialog.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    RegistrationDialogComponent
+    RegistrationDialogComponent,
+    LoginDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatFormFieldModule,
     MatRadioModule,
     MatDialogModule,
+    MatSnackBarModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
