@@ -1,0 +1,55 @@
+<div class="forms-container">
+    <form>
+        <section class="section">
+            <label class="margin">Role:</label>
+            <mat-radio-group name="form" [(ngModel)]="user.role">
+                <mat-radio-button class="margin" *ngFor="let roleType of roleTypes" [value]="roleType">
+                    {{roleType}}
+                </mat-radio-button>
+            </mat-radio-group>
+        </section>
+
+
+        <mat-form-field appearance="fill" *ngIf="user.role == 'admin'">
+            <mat-label>Company</mat-label>
+            <input matInput name="company" [(ngModel)]="user.company">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput name="name" [(ngModel)]="user.name">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Surname</mat-label>
+            <input matInput name="surname" [(ngModel)]="user.surname">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Age</mat-label>
+            <input matInput name="age" type="number" [(ngModel)]="user.age">
+        </mat-form-field>
+
+
+        <section class="section">
+            <label class="margin">Gender:</label>
+            <mat-radio-group name="gender" [(ngModel)]="user.gender">
+                <mat-radio-button class="margin" *ngFor="let gender of genders" [value]="user.gender">
+                    {{gender}}
+                </mat-radio-button>
+            </mat-radio-group>
+        </section>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput name="email" [(ngModel)]="user.email">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" name="password" [(ngModel)]="user.password">
+        </mat-form-field>
+
+        <button mat-flat-button color="primary" [mat-dialog-close]="true">Sign up</button>
+    </form>
+</div>

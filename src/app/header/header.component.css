@@ -1,0 +1,33 @@
+.header{
+    position: relative;
+    background-color: #c8e6f1;
+    width:100%;
+    margin: auto;
+    margin-bottom: 30px;
+    height:120px;
+    padding-right: 20px;
+}
+
+.logo{
+    padding-top:45px; 
+    width:247px;
+    margin-left: 14px;
+}
+
+button{
+    float: right;
+    margin: 45px 10px 0 0 ;
+}
+
+.menuBtn{
+float: left;
+margin-left:20px;
+}
+
+.container {
+width: 30%;
+height: 100vh;
+}
+
+
+
