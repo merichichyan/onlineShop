@@ -1,0 +1,12 @@
+<div class="container" (click)="onSelected()">
+    <a>
+        <div class="textDiv">
+            <h4>{{product.title}}</h4>
+            <p>{{product.description}}</p>
+        </div>
+        <span> 
+            <img style="max-height: 60px;max-width: 70px;" alt="{{product.title}}" [src]="product.photo">
+            <p id="priceDiv">${{product.price}}USD</p>
+        </span>
+    </a>
+</div>
