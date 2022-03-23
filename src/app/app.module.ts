@@ -16,6 +16,7 @@ import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FilterComponent } from './filter/filter.component';
 import { RecommendedProductComponent } from './recommended-product/recommended-product.component';
+import { RecommendedProductDetailComponent } from './recommended-product-detail/recommended-product-detail.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { RecommendedProductComponent } from './recommended-product/recommended-p
     LoginDialogComponent,
     FilterComponent,
     RecommendedProductComponent,
+    RecommendedProductDetailComponent,
   ],
   imports: [
     BrowserModule,
