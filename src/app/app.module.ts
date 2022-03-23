@@ -17,6 +17,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FilterComponent } from './filter/filter.component';
 import { RecommendedProductComponent } from './recommended-product/recommended-product.component';
 import { RecommendedProductDetailComponent } from './recommended-product-detail/recommended-product-detail.component';
+import {MatIconModule} from '@angular/material/icon';
+import { RecrecommendedProductsListComponent } from './recrecommended-products-list/recrecommended-products-list.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { RecommendedProductDetailComponent } from './recommended-product-detail/
     FilterComponent,
     RecommendedProductComponent,
     RecommendedProductDetailComponent,
+    RecrecommendedProductsListComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import { RecommendedProductDetailComponent } from './recommended-product-detail/
     MatRadioModule,
     MatDialogModule,
     MatSnackBarModule,
+    MatIconModule,
     
   ],
   providers: [],

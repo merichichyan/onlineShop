@@ -14,6 +14,7 @@ export class ProductsService {
     { category: 'accessories', gender: 'female', color: 'green', price: 170, title: 'Earring', description: 'description5', photo: 'https://i.pinimg.com/564x/29/19/cd/2919cdb01c26ae076d01c41ebafd8074.jpg' },
   ]
   productSelected = new EventEmitter<Product>()
+  selectedProduct: any;
   constructor() { }
 
   filter(category: string = '', gender: string = '', color: string ='', price: number=0) {
