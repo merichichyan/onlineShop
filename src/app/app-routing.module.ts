@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RecommendedProductDetailComponent } from './recommended-product-detail/recommended-product-detail.component';
+import { RecrecommendedProductsListComponent } from './recrecommended-products-list/recrecommended-products-list.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: '',   redirectTo: '/list', pathMatch: 'full' }, 
+  {path: "list", component: RecrecommendedProductsListComponent},
+  { path: 'detail/:id', component: RecommendedProductDetailComponent},
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -15,9 +15,4 @@ export class RecommendedProductComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  onSelected() {
-    this.pr.productSelected.emit(this.product)
-  }
-
 }

@@ -1,4 +1,5 @@
 export class Product {
+    public id:number
     public category:string
     public gender:string
     public clothingSize?:string
