@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
-      this.count()
+      this.countBadge()
   }
 
   openRegistrationDialog() {
@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
     this.dialog.open(LoginDialogComponent);
   }
 
-  count() {
+  countBadge() {
     let ps
     let products
     if (ps = localStorage.getItem('products')) {

@@ -16,7 +16,7 @@ export class ProductsService {
     { id: 5, category: 'accessories', gender: 'female', color: 'green', price: 170, title: 'Earring', description: 'description5', photo: 'https://i.pinimg.com/564x/29/19/cd/2919cdb01c26ae076d01c41ebafd8074.jpg' },
   ]
   selectedProduct: any;
-  addedProducts:Product[]=[]
+  addedProducts:number[]=[]
   constructor(private messageService: MessageService) {  }
 
   filter(category: string = '', gender: string = '', color: string = '', price: number = 0) {
@@ -52,7 +52,7 @@ export class ProductsService {
       return (p.id == id)
     })
     if (product) {
-      this.addedProducts.push(product)
+      this.addedProducts.push(id)
       localStorage.setItem("products", JSON.stringify(this.addedProducts))
     } 
 

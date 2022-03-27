@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
+import { ProductsService } from '../products.service';
 
 @Component({
   selector: 'app-shopping-basket',
@@ -9,18 +10,28 @@ import { Product } from '../product';
 export class ShoppingBasketComponent implements OnInit {
 
   products: Product[]
-  constructor() { }
+  constructor(private pr: ProductsService) { }
 
   ngOnInit() {
     let ps
+    let data: Product[] = []
     if (ps = localStorage.getItem('products')) {
-        this.products = JSON.parse(ps)
-    } 
-      window.onstorage = (event) => {
-        let p: any = event.newValue
-        this.products = JSON.parse(p)
-      };
+      ps = JSON.parse(ps)
+      ps.forEach((id: any) => {
+        this.pr.products.forEach(product => {
+          if (product.id == id) {
+            data.push(product)
+          }
+        })
+      });
+
+      this.products = data
+    }
+    window.onstorage = (event) => {
+      let p: any = event.newValue
+      this.products = JSON.parse(p)
+    };
   }
 
- 
+
 }
