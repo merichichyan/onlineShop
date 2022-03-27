@@ -3,7 +3,8 @@
     height: auto;
     padding:10px;
     border: 1px solid rgba(173, 172, 172, 0.733);
-    display:inline-block
+    display:inline-block;
+    margin:5px 0 0 20px;
 }
 
 .textDiv{
@@ -16,7 +17,12 @@
     color: #2F496E;
 }
 
-button{
+.container button{
     display: inline-block;
     float: right;
+}
+
+.backspaceBtn{
+    float: left;
+    margin:5px 0 0 20px;
 }

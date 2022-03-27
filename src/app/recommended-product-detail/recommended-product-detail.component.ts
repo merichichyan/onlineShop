@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Product } from '../product';
 import { ProductsService } from '../products.service';
 import { Location } from '@angular/common';
+import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-recommended-product-detail',
@@ -14,7 +15,7 @@ export class RecommendedProductDetailComponent implements OnInit {
   @Input() product: Product
   constructor(
     private route: ActivatedRoute,
-    private pr:ProductsService,
+    private pr: ProductsService,
     private location: Location
   ) { }
 
@@ -26,5 +27,16 @@ export class RecommendedProductDetailComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.pr.getProduct(id)
       .subscribe(product => this.product = product);
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
+
+  addToBasket(id: number) {
+    if (!id)
+      return
+    this.pr.addToBasket(id)
+    
   }
 }

@@ -10,9 +10,11 @@ import { RegistrationDialogComponent } from '../registration-dialog/registration
 })
 export class HeaderComponent implements OnInit {
 
+  badgeNumber: number = 0
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
+      this.count()
   }
 
   openRegistrationDialog() {
@@ -21,5 +23,19 @@ export class HeaderComponent implements OnInit {
 
   openLoginDialog() {
     this.dialog.open(LoginDialogComponent);
+  }
+
+  count() {
+    let ps
+    let products
+    if (ps = localStorage.getItem('products')) {
+      products = JSON.parse(ps)
+      this.badgeNumber = products.length
+    }
+    window.onstorage = (event) => {
+      let p: any = event.newValue
+      products = JSON.parse(p)
+      this.badgeNumber = products.length
+    };
   }
 }

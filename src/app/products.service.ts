@@ -15,9 +15,9 @@ export class ProductsService {
     { id: 4, category: 'shoes', gender: 'unisex', shoesSize: '38', color: 'blue', price: 1750, title: 'Nike Air', description: 'description4', photo: 'https://5.imimg.com/data5/ANDROID/Default/2021/8/UR/IO/IT/54132075/product-jpeg-500x500.jpg' },
     { id: 5, category: 'accessories', gender: 'female', color: 'green', price: 170, title: 'Earring', description: 'description5', photo: 'https://i.pinimg.com/564x/29/19/cd/2919cdb01c26ae076d01c41ebafd8074.jpg' },
   ]
-  // productSelected = new EventEmitter<Product>()
   selectedProduct: any;
-  constructor(private messageService: MessageService) { }
+  addedProducts:Product[]=[]
+  constructor(private messageService: MessageService) {  }
 
   filter(category: string = '', gender: string = '', color: string = '', price: number = 0) {
     let newProduct: any
@@ -42,8 +42,19 @@ export class ProductsService {
 
 
   getProduct(id: number): Observable<Product> {
-  const product = this.products.find(p => p.id === id)!;
-  this.messageService.add(`ProductService: fetched hero id=${id}`);
-  return of(product);
-}
+    const product = this.products.find(p => p.id === id)!;
+    this.messageService.add(`ProductService: fetched hero id=${id}`);
+    return of(product);
+  }
+
+  addToBasket(id: number) {
+    let product = this.products.find(function (p) {
+      return (p.id == id)
+    })
+    if (product) {
+      this.addedProducts.push(product)
+      localStorage.setItem("products", JSON.stringify(this.addedProducts))
+    } 
+
+  }
 }

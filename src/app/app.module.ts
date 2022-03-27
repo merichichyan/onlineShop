@@ -19,6 +19,9 @@ import { RecommendedProductComponent } from './recommended-product/recommended-p
 import { RecommendedProductDetailComponent } from './recommended-product-detail/recommended-product-detail.component';
 import {MatIconModule} from '@angular/material/icon';
 import { RecrecommendedProductsListComponent } from './recrecommended-products-list/recrecommended-products-list.component';
+import {MatBadgeModule} from '@angular/material/badge';
+import { ShoppingBasketComponent } from './shopping-basket/shopping-basket.component';
+
 
 @NgModule({
   declarations: [
@@ -30,6 +33,7 @@ import { RecrecommendedProductsListComponent } from './recrecommended-products-l
     RecommendedProductComponent,
     RecommendedProductDetailComponent,
     RecrecommendedProductsListComponent,
+    ShoppingBasketComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,7 @@ import { RecrecommendedProductsListComponent } from './recrecommended-products-l
     MatDialogModule,
     MatSnackBarModule,
     MatIconModule,
-    
+    MatBadgeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
