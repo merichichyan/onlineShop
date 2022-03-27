@@ -24,12 +24,15 @@ export class ShoppingBasketComponent implements OnInit {
           }
         })
       });
-
       this.products = data
     }
     window.onstorage = (event) => {
-      let p: any = event.newValue
-      this.products = JSON.parse(p)
+      let id: any = event.newValue
+      this.pr.products.forEach(product => {
+        if (product.id == id) {
+          data.push(product)
+        }
+      })
     };
   }
 
