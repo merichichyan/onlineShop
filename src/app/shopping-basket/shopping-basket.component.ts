@@ -13,6 +13,10 @@ export class ShoppingBasketComponent implements OnInit {
   constructor(private pr: ProductsService) { }
 
   ngOnInit() {
+    this.addProductToBasket()
+  }
+
+  addProductToBasket() {
     let ps
     let data: Product[] = []
     if (ps = localStorage.getItem('products')) {
@@ -35,6 +39,5 @@ export class ShoppingBasketComponent implements OnInit {
       })
     };
   }
-
 
 }

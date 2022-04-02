@@ -1,29 +1,36 @@
 .container{
     width: 15%;
-    height: 80px;
-    padding:10px;
+    height: 120px;
+    padding:10px 10px 0 10px;
     border: 1px solid rgba(173, 172, 172, 0.733);
     display:inline-block;
     cursor: pointer;
     margin: 30px  0 0 40px;
 }
-
+ .itemDiv{
+    height: 80px;
+ }
 .textDiv{
     display: inline-block;
 }
 
 span{
+    height: 80px;
     float: right;
 }
 
 #priceDiv{
    font-weight: bold;
    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: #2F496E;
-    margin-top: 5px;
+   color: #2F496E;
+   margin-top: 5px;
 }
 
 a{
     text-decoration:none;
 }
 
+.deleteBtn{
+    margin-top: 5px;
+    float: right;
+}
