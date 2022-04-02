@@ -9,12 +9,10 @@ import { ProductsService } from '../products.service';
 })
 export class RecrecommendedProductsListComponent implements OnInit {
 
-  products: Product[];
 
-  constructor(private pr:ProductsService) { }
+  constructor(public pr:ProductsService) { }
 
   ngOnInit() {
-    this.products=this.pr.products
   }
 
 }

@@ -1,6 +1,6 @@
 <div class="itemDiv">
     <app-recommended-product  
-    *ngFor="let productEl of products"
+    *ngFor="let productEl of pr.products"
     [product]="productEl"
     routerLink="/detail/{{productEl.id}}"
     ></app-recommended-product>

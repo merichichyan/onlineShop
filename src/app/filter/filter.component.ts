@@ -17,7 +17,6 @@ export class FilterComponent implements OnInit {
   clothingSizes: string[] = ['xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl']
   shoesSizes: string[] = ['36', '37', '38', '39', '40']
   colors: string[] = ['white', 'black', 'gray', 'blue', 'green', 'red', 'pink','gold']
-  @Output() updateItemsEvent: EventEmitter<Product[]> = new EventEmitter<Product[]>();
 
   constructor(private pr: ProductsService) {
   }
@@ -28,7 +27,8 @@ export class FilterComponent implements OnInit {
 
   filter() {
     this.pr.filter(this.product.category,this.product.gender,this.product.color,this.product.price)
-    this.updateItemsEvent.emit(this.pr.products);
   }
 
+
+  
 }

@@ -38,8 +38,9 @@ export class ProductsService {
       return valid
     })
     this.products = newProduct
+    console.log(this.products);
+    
   }
-
 
   getProduct(id: number): Observable<Product> {
     const product = this.products.find(p => p.id === id)!;
@@ -55,6 +56,5 @@ export class ProductsService {
       this.addedProducts.push(id)
       localStorage.setItem("products", JSON.stringify(this.addedProducts))
     } 
-
   }
 }
