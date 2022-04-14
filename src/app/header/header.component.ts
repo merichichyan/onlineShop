@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { map, Observable, startWith } from 'rxjs';
 import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
+import { Product } from '../product';
+import { ProductsService } from '../products.service';
 import { RegistrationDialogComponent } from '../registration-dialog/registration-dialog.component';
 
 @Component({
@@ -10,11 +13,13 @@ import { RegistrationDialogComponent } from '../registration-dialog/registration
 })
 export class HeaderComponent implements OnInit {
 
+  value = '';
   badgeNumber: number = 0
-  constructor(public dialog: MatDialog) { }
+  filterArr: Product[] = []
+  constructor(public dialog: MatDialog, public pr: ProductsService) { }
 
   ngOnInit(): void {
-      this.countBadge()
+    this.countBadge()
   }
 
   openRegistrationDialog() {
@@ -38,4 +43,18 @@ export class HeaderComponent implements OnInit {
       this.badgeNumber = products.length
     };
   }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.filterArr = this.pr.products.filter(product => {
+      return product.title.trim().toLowerCase().includes(filterValue.trim().toLowerCase())
+    })
+  }
+
+  clearSearch() {
+    this.filterArr = this.pr.products;
+    this.value = ""    
+  }
+
+
 }

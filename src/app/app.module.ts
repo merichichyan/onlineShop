@@ -21,6 +21,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { RecrecommendedProductsListComponent } from './recrecommended-products-list/recrecommended-products-list.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import { ShoppingBasketComponent } from './shopping-basket/shopping-basket.component';
+import { HttpClientModule } from '@angular/common/http';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
 @NgModule({
@@ -48,6 +50,8 @@ import { ShoppingBasketComponent } from './shopping-basket/shopping-basket.compo
     MatSnackBarModule,
     MatIconModule,
     MatBadgeModule,
+    HttpClientModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]
