@@ -9,8 +9,6 @@ import { ProductsService } from '../products.service';
   styleUrls: ['./recommended-product.component.css']
 })
 export class RecommendedProductComponent implements OnInit {
-
-
   @Input() product: Product;
   @Input() inShoppingBacket: boolean
   @Input() products: Product[]

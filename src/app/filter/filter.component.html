@@ -4,7 +4,8 @@
             <mat-label>Category</mat-label>
             <select matNativeControl name="category" [(ngModel)]="product.category">
                 <optgroup label="Wardrobe">
-                    <option *ngFor="let element of wardrobe" [value]="element">{{element}}</optgroup>
+                    <option *ngFor="let element of wardrobe" [value]="element">{{element}}
+                </optgroup>
                 <optgroup label="Accessories">
                     <option *ngFor="let element of accessories" [value]="element">{{element}}</option>
                 </optgroup>
@@ -42,14 +43,14 @@
             <mat-label>Color</mat-label>
             <select matNativeControl name="color" [(ngModel)]="product.color">
                 <optgroup label="Color">
-                    <option *ngFor="let color of colors" [value]="color" >{{color}}</option>
+                    <option *ngFor="let color of colors" [value]="color">{{color}}</option>
                 </optgroup>
             </select>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
             <mat-label>Price</mat-label>
-            <input matInput type="number" name="price" [(ngModel)]="product.price" >
+            <input matInput type="number" name="price" [(ngModel)]="product.price">
         </mat-form-field>
     </form>
 

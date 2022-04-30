@@ -22,7 +22,7 @@ export class ShoppingBasketComponent implements OnInit {
     if (ps = localStorage.getItem('products')) {
       ps = JSON.parse(ps)
       ps.forEach((id: any) => {
-        this.pr.products.forEach(product => {
+        this.pr.products.forEach((product: any) => {
           if (product.id == id) {
             data.push(product)
           }
@@ -32,7 +32,7 @@ export class ShoppingBasketComponent implements OnInit {
     }
     window.onstorage = (event) => {
       let id: any = event.newValue
-      this.pr.products.forEach(product => {
+      this.pr.products.forEach((product: any) => {
         if (product.id == id) {
           data.push(product)
         }

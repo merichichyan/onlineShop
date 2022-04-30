@@ -14,8 +14,8 @@ import { RegistrationDialogComponent } from '../registration-dialog/registration
 export class HeaderComponent implements OnInit {
 
   value = '';
-  badgeNumber: number = 0
   filterArr: Product[] = []
+  fValue: string = ''
   constructor(public dialog: MatDialog, public pr: ProductsService) { }
 
   ngOnInit(): void {
@@ -31,30 +31,25 @@ export class HeaderComponent implements OnInit {
   }
 
   countBadge() {
-    let ps
-    let products
-    if (ps = localStorage.getItem('products')) {
-      products = JSON.parse(ps)
-      this.badgeNumber = products.length
-    }
-    window.onstorage = (event) => {
-      let p: any = event.newValue
-      products = JSON.parse(p)
-      this.badgeNumber = products.length
-    };
+    window.addEventListener('storage', () => {
+      let p
+      if(p = localStorage.getItem("products")){
+        this.pr.addedProducts = JSON.parse(p)
+      }
+    });
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.filterArr = this.pr.products.filter(product => {
-      return product.title.trim().toLowerCase().includes(filterValue.trim().toLowerCase())
+  applyFilter(event: any) {
+    this.fValue = event.target.value
+    this.pr.fProducts = this.pr.products.filter((product: any) => {
+      return product.title.trim().toLowerCase().includes(this.fValue.trim().toLowerCase())
     })
   }
 
   clearSearch() {
-    this.filterArr = this.pr.products;
-    this.value = ""    
+    this.pr.addProducts().subscribe(data => {
+      this.pr.products = data
+    })
+    this.value = ""
   }
-
-
 }

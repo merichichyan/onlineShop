@@ -8,5 +8,5 @@ export class User {
     password: string
     role: string
     token: string
-    selected?:boolean
+    selected?: boolean
 }

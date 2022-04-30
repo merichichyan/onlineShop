@@ -8,7 +8,7 @@ import { User } from '../user';
 })
 export class RegistrationDialogComponent implements OnInit {
 
-  user:User = new User
+  user: User = new User
   roleTypes: string[] = ['admin', 'user'];
   genders: string[] = ['male', 'female']
   constructor() { }

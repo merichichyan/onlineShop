@@ -3,7 +3,7 @@
 
   <mat-form-field appearance="fill">
     <mat-label>Serach</mat-label>
-    <input matInput type="text" [(ngModel)]="value" (keyup)="applyFilter($event)">
+    <input matInput type="text" (keyup)="applyFilter($event)">
     <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
       <mat-icon>close</mat-icon>
     </button>
@@ -12,7 +12,7 @@
   <div class="buttons">
     <button mat-flat-button color="primary" (click)="openLoginDialog()">Login</button>
     <button mat-flat-button color="primary" (click)="openRegistrationDialog()">Sign up</button>
-    <button mat-flat-button color="primary" matBadge="{{badgeNumber}}" routerLink="/backet">
+    <button mat-flat-button color="primary" matBadge="{{pr.addedProducts.length}}" routerLink="/backet">
       <mat-icon>shopping_cart</mat-icon>
     </button>
   </div>

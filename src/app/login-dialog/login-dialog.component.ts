@@ -8,8 +8,6 @@ import { UsersService } from '../users.service';
   styleUrls: ['./login-dialog.component.css']
 })
 export class LoginDialogComponent implements OnInit {
-
- 
   email: string
   password: string
   constructor(private us: UsersService, private _snackBar: MatSnackBar) { }
@@ -18,10 +16,10 @@ export class LoginDialogComponent implements OnInit {
   }
 
   onSubmit() {
-    if (!this.email || !this.password) 
+    if (!this.email || !this.password)
       return
-      let login = this.us.login(this.email, this.password)
-      location.reload()
+    let login = this.us.login(this.email, this.password)
+    location.reload()
   }
 
 
