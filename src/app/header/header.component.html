@@ -2,8 +2,8 @@
   <a href="#"><img class="logo" src="https://easyonlineshop.b-cdn.net/wp-content/uploads/2021/01/web-logo-wide.svg"></a>
 
   <mat-form-field appearance="fill">
-    <mat-label>Serach</mat-label>
-    <input matInput type="text" (keyup)="applyFilter($event)">
+    <mat-label>Search</mat-label>
+    <input matInput type="text" [(ngModel)]="fValue"  (keyup)="search($event)">
     <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
       <mat-icon>close</mat-icon>
     </button>
@@ -12,7 +12,7 @@
   <div class="buttons">
     <button mat-flat-button color="primary" (click)="openLoginDialog()">Login</button>
     <button mat-flat-button color="primary" (click)="openRegistrationDialog()">Sign up</button>
-    <button mat-flat-button color="primary" matBadge="{{pr.addedProducts.length}}" routerLink="/backet">
+    <button mat-flat-button color="primary" matBadge="{{pr.addedProducts.length}}" routerLink="/basket">
       <mat-icon>shopping_cart</mat-icon>
     </button>
   </div>

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Product } from './product';
-import { MessageService } from './message.service';
 import { HttpClient } from '@angular/common/http';
+import { Location } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,10 @@ export class ProductsService {
   fProducts: Product[] = []
   selectedProduct: any;
   addedProducts: number[] = []
-  
-  constructor(private messageService: MessageService, private http: HttpClient) {
+
+  constructor(
+    private http: HttpClient,
+    private location: Location,) {
     this.addProducts().subscribe(data => {
       this.products = data
       this.fProducts = data
@@ -24,7 +26,7 @@ export class ProductsService {
     })
   }
 
-  filter(category: string = '', gender: string = '', color: string = '', price: number = 0) {
+  filter(category: string = '', gender: string = '', color: string = '', price: number = 0,clothingSize='',shoesSize='') {
     let newProduct: any
     newProduct = this.products.filter((product: any) => {
       let valid = true
@@ -42,9 +44,18 @@ export class ProductsService {
       }
       return valid
     })
-    this.products = newProduct
-    console.log(this.products);
+    this.fProducts = newProduct
 
+    const params = new URLSearchParams({
+      'category': category,
+      'gender': gender,
+      'color': color,
+      'price': price + '',
+      'clothingSize': clothingSize,
+      'shoesSize': shoesSize
+    });
+    const url = `list?${params.toString()}`;
+    this.location.go(url);
   }
 
   addProducts(): Observable<any> {
@@ -66,4 +77,5 @@ export class ProductsService {
       localStorage.setItem("products", JSON.stringify(this.addedProducts))
     }
   }
+
 }

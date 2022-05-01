@@ -1,4 +1,4 @@
-<app-filter></app-filter>
+<app-filter *ngIf = "pr.products.length > 0"></app-filter>
 <div class="itemDiv">
     <app-recommended-product  
     *ngFor="let productEl of pr.fProducts"

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { map, Observable, startWith } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
 import { Product } from '../product';
 import { ProductsService } from '../products.service';
 import { RegistrationDialogComponent } from '../registration-dialog/registration-dialog.component';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +17,19 @@ export class HeaderComponent implements OnInit {
   value = '';
   filterArr: Product[] = []
   fValue: string = ''
-  constructor(public dialog: MatDialog, public pr: ProductsService) { }
+  constructor(
+              private dialog: MatDialog, 
+              public pr: ProductsService,
+              private location: Location,
+              private route: ActivatedRoute
+              ) { 
+                this.route.queryParams.subscribe(params => {
+                  this.fValue = params['q']
+                  if(this.fValue){
+                    this.search()
+                  }
+                })
+            }
 
   ngOnInit(): void {
     this.countBadge()
@@ -39,11 +52,13 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  applyFilter(event: any) {
-    this.fValue = event.target.value
-    this.pr.fProducts = this.pr.products.filter((product: any) => {
+  search(event: any = null): any{
+    this.pr.fProducts = this.pr.products.filter((product: Product) => {
       return product.title.trim().toLowerCase().includes(this.fValue.trim().toLowerCase())
     })
+    const params = new URLSearchParams({ q: this.fValue});
+    const url = `list?${params.toString()}`;
+    this.location.go(url);
   }
 
   clearSearch() {

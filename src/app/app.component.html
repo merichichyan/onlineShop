@@ -1,2 +1,2 @@
-<app-header></app-header>
+<app-header *ngIf = "pr.products.length > 0"></app-header>
 <router-outlet *ngIf = "pr.products.length > 0"></router-outlet>
