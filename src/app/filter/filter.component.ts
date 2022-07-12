@@ -46,7 +46,23 @@ export class FilterComponent implements OnInit {
   ngOnInit(): void { }
 
   filter() {
-    this.pr.filter(this.product.category,
+    this.pr.filter(
+      this.product.category,
+      this.product.gender,
+      this.product.color,
+      this.product.price
+      )
+  }
+
+
+  reset(){
+      this.product.category='',
+      this.product.gender='',
+      this.product.color='',
+      this.product.price=0
+      
+    this.pr.filter(
+      this.product.category,
       this.product.gender,
       this.product.color,
       this.product.price

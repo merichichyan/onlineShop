@@ -1,5 +1,6 @@
 .filterDiv{
     width: 15%;
+    height: 100%;
     float:left;
     background-color: hsl(204, 33%, 97%);
     padding-top:30px
@@ -14,5 +15,5 @@ mat-form-field{
 button{
     float: right;
     margin-right: 20px;
-    margin-bottom: 20px;
+    margin-top: 30px;
 }

@@ -1,19 +1,24 @@
-<div class="container">
-    <div class="itemDiv" routerLink="/detail/{{product.id}}">
-        <a>
-            <div class="textDiv">
-                <h4>{{product.title}}</h4>
-                <p>{{product.description}}</p>
-            </div>
-            <span>
-                <img style="max-height: 60px;max-width: 70px;" alt="{{product.title}}" [src]="product.photo">
-                <p id="priceDiv">${{product.price}}USD</p>
-            </span>
-        </a>
-    </div>
-    <button mat-button color="warn" 
+<div class="projects">
+    <mat-card>
+        <div style="width: 270px; height: 60%;">
+                    <img  [src]="product.photo" alt="Not found"
+                         style="display: block; height:80% ;margin: 0 auto;">
+        </div>
+
+        <div class="desc">
+            <h1>{{product.title}}</h1>
+            <p>{{product.description}}</p>
+        </div>
+        <div style="position: absolute;bottom:20px;">
+            <span>Created Date: {{product.date}}</span>
+            <span class="budgetSpan" style="margin-left: 15px;">${{product.price}}USD</span>
+        </div>
+        <button mat-button color="warn" 
             class="deleteBtn" 
             *ngIf="inShoppingBacket"
-            (click)="deleteProductToBasket(product.id)">
-    Delete</button>
+            (click)="deleteProductToBasket(product.id)"><mat-icon>delete</mat-icon>
+        </button>
+            <div class="budjet" (click)="toOrder()">By now</div>
+
+    </mat-card>
 </div>

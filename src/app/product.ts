@@ -10,4 +10,6 @@ export class Product {
     public description: string
     public photo: string
     public selected?: boolean
+    public date:Date
+    public quantity?:number
 }

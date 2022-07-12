@@ -34,5 +34,9 @@ export class RecommendedProductComponent implements OnInit {
     });
   }
 
+
+  toOrder(){
+    alert('Your order has been accepted')
+  }
 }
 

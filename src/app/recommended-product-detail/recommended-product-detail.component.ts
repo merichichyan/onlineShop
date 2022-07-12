@@ -11,7 +11,11 @@ import { Location } from '@angular/common';
 })
 export class RecommendedProductDetailComponent implements OnInit  {
 
-  @Input() product: Product
+  clothingSizes: string[] = ['xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl']
+  shoesSizes: string[] = ['36', '37', '38', '39', '40']
+  colors: string[] = ['white', 'black', 'gray', 'blue', 'green', 'red', 'pink', 'gold']
+  @Input() product: Product;
+  quantity:number=1;
   constructor(
     private route: ActivatedRoute,
     public pr: ProductsService,
@@ -37,5 +41,9 @@ export class RecommendedProductDetailComponent implements OnInit  {
       return
     this.pr.addToBasket(id)
 
+  }
+
+  toOrder(){
+    alert('Your order has been accepted')
   }
 }

@@ -40,4 +40,6 @@ export class ShoppingBasketComponent implements OnInit {
     };
   }
 
+
+
 }

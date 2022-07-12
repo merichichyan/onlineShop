@@ -59,6 +59,7 @@ export class HeaderComponent implements OnInit {
     const params = new URLSearchParams({ q: this.fValue});
     const url = `list?${params.toString()}`;
     this.location.go(url);
+    
   }
 
   clearSearch() {

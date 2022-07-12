@@ -1,4 +1,4 @@
-.container{
+/* .container{
     width: 350px;
     height: auto;
     padding:10px;
@@ -25,4 +25,60 @@
 .backspaceBtn{
     float: left;
     margin:5px 0 0 20px;
+} */
+
+.backspaceBtn{
+    float: left;
+    margin:-50px 0 0 -30px;
+}
+
+.imgDiv{
+    width: 370px;
+    height: auto;
+    margin-right: 60px;
+    margin-left: 105px
+}
+
+.product{
+    height: 100%;
+    background-color: #F5F8FA;
+    padding: 80px;
+}
+
+.content{
+    display: flex;
+}
+
+.content h1{
+    font-size: 45px;
+    color: #2F496E;
+    font-weight: 500;
+}
+
+.budjet{
+    background-color:#2F496E;
+    color: white;
+    height: 50px;
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.budjet:hover{
+    background-color:#3B5D8B;
+}
+
+.desc{
+    width: 300px;
+    margin-right: 250px;
+}
+
+.desc p{
+    font-size: 18px;
 }

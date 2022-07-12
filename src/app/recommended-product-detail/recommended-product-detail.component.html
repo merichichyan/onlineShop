@@ -1,4 +1,4 @@
-<div class="backspaceBtn">
+<!-- <div class="backspaceBtn">
   <button (click)="goBack()">
     <mat-icon>keyboard_backspace</mat-icon>
   </button>
@@ -19,3 +19,67 @@
   </div>
   <p class="priceDiv"> ${{ product.price }}USD </p>
 </div>
+ -->
+
+
+ <div class="product">
+      <div class="backspaceBtn">
+          <button (click)="goBack()">
+              <mat-icon>keyboard_backspace</mat-icon>
+          </button>
+      </div>
+
+    <div class="content">
+      <div class="imgDiv">
+        <img [src]="product.photo" 
+             alt="{{ product.title }}"
+             style="width: 100%;">
+      </div>
+
+      <div class="desc">
+        <p>
+          {{product.description}}
+        </p>
+      </div>
+      <div>
+        <h1>By {{ product.title }}</h1>
+        <form style="margin-top:50px"> 
+          <mat-form-field appearance="fill" *ngIf="product.category == 'clothing' || product.category == 'underwear'" style="display:block">
+              <mat-label>Size</mat-label>
+              <select matNativeControl name="clothingSize" [(ngModel)]="product.clothingSize">
+                  <optgroup label="Size">
+                      <option *ngFor="let size of clothingSizes" [value]="size">{{size}}</option>
+                  </optgroup>
+              </select>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill" *ngIf="product.category == 'shoes'"  style="display:block">
+              <mat-label>Size</mat-label>
+              <select matNativeControl name="shoesSize" [(ngModel)]="product.shoesSize">
+                  <optgroup label="Size">
+                      <option *ngFor="let size of shoesSizes" [value]="size">{{size}}</option>
+                  </optgroup>
+              </select>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill"  style="display:block">
+              <mat-label>Color</mat-label>
+              <select matNativeControl name="color" [(ngModel)]="product.color">
+                  <optgroup label="Color">
+                      <option *ngFor="let color of colors" [value]="color">{{color}}</option>
+                  </optgroup>
+              </select>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill"  style="display:block">
+            <mat-label>Quantity</mat-label>
+            <input matInput name="quantity" type="number" [(ngModel)]="quantity" min="1">
+        </mat-form-field>
+        
+        <div class="budjet" (click)="toOrder()">By now 	&nbsp; ${{quantity * product.price}}USD</div>
+        <div class="budjet" (click)="addToBasket(product.id)">Send to basket	&nbsp;<mat-icon>shopping_basket</mat-icon></div>
+      </form>
+   
+      </div>
+    </div>
+ </div>

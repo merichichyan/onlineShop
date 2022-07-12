@@ -23,6 +23,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { ShoppingBasketComponent } from './shopping-basket/shopping-basket.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatIconModule,
     MatBadgeModule,
     HttpClientModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
